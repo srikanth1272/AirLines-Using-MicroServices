@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.ReservationMaster>
+
+@{
+    ViewData["Title"] = "RMByFlightNoAndDate";
+}
+
+<h1>RMByFlightNoAndDate</h1>
+
+<p>
+    <a asp-action="ReservationMaster">Back</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNR)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightDate)
+                </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

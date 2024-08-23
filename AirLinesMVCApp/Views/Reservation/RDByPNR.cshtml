@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.ReservationDetail>
+
+@{
+    ViewData["Title"] = "RDByPNR";
+}
+
+<h1>RDByPNR</h1>
+
+<p>
+    <a asp-action="ReservationDetails">Back</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.PNR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PNR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassengerNo)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr> }
+
+    </tbody>
+</table>

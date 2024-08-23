@@ -1,0 +1,35 @@
+﻿@model AirLinesMVCApp.Models.ReservationMaster
+
+@{
+    ViewData["Title"] = "RMDetails";
+}
+
+<h1>RMDetails</h1>
+
+<div>
+    <h4>ReservationMaster</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PNR)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PNR)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PNR">Edit</a> |
+</div>

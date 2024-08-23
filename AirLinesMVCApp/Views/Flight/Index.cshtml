@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.Flight>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSeats)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSeats)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { fno = item.FlightNo }) |
+                    @Html.ActionLink("Details", "Details", new { fno = item.FlightNo }) |
+                    @Html.ActionLink("Delete", "Delete", new { fno = item.FlightNo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

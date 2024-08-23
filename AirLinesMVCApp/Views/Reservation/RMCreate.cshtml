@@ -1,0 +1,53 @@
+﻿@model AirLinesMVCApp.Models.ReservationMaster
+
+@{
+    ViewData["Title"] = "RMCreate";
+}
+
+<h1>RMCreate</h1>
+
+<h4>ReservationMaster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RMCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PNR" class="control-label"></label>
+                <input asp-for="PNR" class="form-control" />
+                <span asp-validation-for="PNR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightNo" class="control-label"></label>
+               @*  <select asp-for="FlightNo" class="form-control">
+                    @foreach (SelectListItem flight in await Helper.GetFlightScheduleNo())
+                    {
+                        <option value="@flight.Value">@flight.Text</option>
+                    }
+                </select> *@
+                <input asp-for="FlightNo" class="form-control" />
+                <span asp-validation-for="FlightNo" class="text-danger"></span>
+            </div>
+            <label asp-for="FlightDate" class="control-label"></label>
+            @* <select asp-for="FlightDate" class="form-control">
+                @foreach (SelectListItem date in await Helper.GetFlightScheduleDates())
+                {
+                    <option value="@date.Value">@date.Text</option>
+                }
+            </select> *@
+            <input asp-for="FlightDate" class="form-control" />
+            <span asp-validation-for="FlightDate" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ReservationMaster">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

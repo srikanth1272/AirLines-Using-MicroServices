@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.ReservationDetail>
+
+@{
+    ViewData["Title"] = "ReservationDetails";
+}
+
+<h1>ReservationDetails</h1>
+
+<p>
+    <a asp-action="ReservationMaster">Reservation Master</a>
+</p>
+<p>
+    @Html.ActionLink("Create", "RDCreate", new { pnr = ViewData["PNR"]})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "RDEdit", new { pnr = item.PNR,pno=item.PassengerNo }) |
+                    @Html.ActionLink("Details", "RDDetails", new { pnr = item.PNR, pno = item.PassengerNo }) |
+                    @Html.ActionLink("Delete", "RDDelete", new { pnr = item.PNR, pno = item.PassengerNo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.FlightSchedule>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArriveTime)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightDate)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArriveTime)
+            </td>
+       
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  fno = item.FlightNo,date = item.FlightDate  }) |
+                    @Html.ActionLink("FlightSchedulesByFlightNo", "FlightSchedulesByFlightNo", new { fno = item.FlightNo }) |
+                    @Html.ActionLink("FlightSchedulesByDate", "FlightSchedulesByDate", new { date = item.FlightDate }) |
+                    @Html.ActionLink("Details", "Details", new { fno = item.FlightNo, date = item.FlightDate }) |
+                    @Html.ActionLink("Delete", "Delete", new { fno = item.FlightNo, date = item.FlightDate })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

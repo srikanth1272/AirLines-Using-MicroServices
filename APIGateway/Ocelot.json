@@ -1,0 +1,63 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Flight/{something}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5026
+        }
+      ],
+      "UpstreamPathTemplate": "/flightSvc/{something}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/FlightSchedule/{something}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5115
+        }
+      ],
+      "UpstreamPathTemplate": "/flightScheduleSvc/{something}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/ReservationMaster/{something}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5135
+        }
+      ],
+      "UpstreamPathTemplate": "/reservationSvc/{something}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/ReservationDetail/{something}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5135
+        }
+      ],
+      "UpstreamPathTemplate": "/passengerSvc/{something}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/{something}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5191
+        }
+      ],
+      "UpstreamPathTemplate": "/authSvc/{something}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5172"
+  }
+}
+ 

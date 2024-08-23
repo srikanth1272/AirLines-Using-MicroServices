@@ -1,0 +1,6 @@
+@ReservationWebApi_HostAddress = http://localhost:5135
+
+GET {{ReservationWebApi_HostAddress}}/api/ReservationMaster
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@FlightScheduleWebApi_HostAddress = http://localhost:5115
+
+GET {{FlightScheduleWebApi_HostAddress}}/api/FlightSchedule
+Accept: application/json
+
+###

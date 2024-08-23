@@ -1,0 +1,19 @@
+@FlightWebApi_HostAddress = http://localhost:5026
+
+GET {{FlightWebApi_HostAddress}}/api/Flight
+Accept: application/json
+###
+GET {{FlightWebApi_HostAddress}}/api/Flight/6E1234
+Accept: application/json
+###
+
+POST {{FlightWebApi_HostAddress}}/api/Flight/6E1234
+Content-Type: application/json
+{
+  "flightNo": "6X1234",
+  "fromCity": "GUJ",
+  "toCity": "DEL",
+  "totalSeats": 100
+}
+
+###

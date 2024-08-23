@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.ReservationMaster>
+
+@{
+    ViewData["Title"] = "ReservationMaster";
+}
+
+<h1>ReservaionMaster</h1>
+
+<p>
+    <a asp-action="RMCreate">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDate)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+             <td>
+                    @Html.DisplayFor(modelItem => item.FlightDate)
+             </td>
+            <td>
+                <a asp-action="RMEdit" asp-route-pnr="@item.PNR">Edit</a> |
+                <a asp-action="RMDetails" asp-route-pnr="@item.PNR">Details</a> |
+                <a asp-action="RMByFlightNoAndDate" asp-route-fno="@item.FlightNo" asp-route-date="@item.FlightDate">ByFlightNoAndDate</a> |
+                <a asp-action="ReservationDetails" asp-route-pnr="@item.PNR">PassengersList</a> |
+                <a asp-action="RMDelete" asp-route-pnr="@item.PNR">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

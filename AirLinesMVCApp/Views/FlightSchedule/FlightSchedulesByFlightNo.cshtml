@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AirLinesMVCApp.Models.FlightSchedule>
+
+@{
+    ViewData["Title"] = "FlightSchedulesByFlightNo";
+}
+
+<h1>FlightSchedulesByFlightNo</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArriveTime)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightDate)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArriveTime)
+            </td>
+           
+           
+        </tr>
+}
+    </tbody>
+</table>
